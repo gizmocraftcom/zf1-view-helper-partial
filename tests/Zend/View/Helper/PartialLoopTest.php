@@ -19,7 +19,8 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
-
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
+use PHPUnit\Framework\Attributes\Group;
 
 /**
  * Test class for Zend_View_Helper_PartialLoop.
@@ -29,9 +30,9 @@
  * @subpackage UnitTests
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @group      Zend_View
- * @group      Zend_View_Helper
  */
+#[Group('Zend_View')]
+#[Group('Zend_View_Helper')]
 class Zend_View_Helper_PartialLoopTest extends PHPUnit\Framework\TestCase
 {
     /**
@@ -240,10 +241,8 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group ZF-3350
-     * @group ZF-3352
-     */
+    #[Group('ZF-3350')]
+    #[Group('ZF-3352')]
     public function testShouldNotCastToArrayIfObjectIsTraversable()
     {
         $data = array(
@@ -267,10 +266,8 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit\Framework\TestCase
         }
     }
 
-    /**
-     * @group ZF-3083
-     * @doesNotPerformAssertions
-     */
+    #[Group('ZF-3083')]
+    #[DoesNotPerformAssertions]
     public function testEmptyArrayPassedToPartialLoopShouldNotThrowException()
     {
         $view = new Zend_View(array(
@@ -292,9 +289,9 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit\Framework\TestCase
     }
 
     /**
-     * @group ZF-2737
      * @link http://framework.zend.com/issues/browse/ZF-2737
      */
+    #[Group('ZF-2737')]
     public function testPartialLoopIncramentsPartialCounter()
     {
         $data = array(
@@ -317,9 +314,9 @@ class Zend_View_Helper_PartialLoopTest extends PHPUnit\Framework\TestCase
     }
 
     /**
-     * @group ZF-5174
      * @link http://framework.zend.com/issues/browse/ZF-5174
      */
+    #[Group('ZF-5174')]
     public function testPartialLoopPartialCounterResets()
     {
         $data = array(
